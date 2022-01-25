@@ -12,7 +12,8 @@ fn main() {
     println!("x = {}", x);
 
     let mut x = 5;
-    x = 15;
+    println!("x = {}", x);
 
+    x = 15;
     println!("x = {}", x);
 }

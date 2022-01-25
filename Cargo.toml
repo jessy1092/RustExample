@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+  "1_hello_world",
+  "2_variable_bindings",
+  "3_functions",
+  "4_primitive_types",
+]
