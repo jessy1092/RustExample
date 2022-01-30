@@ -1,14 +1,16 @@
 use std::mem::size_of;
 use std::mem::size_of_val;
 
-fn reverse(pair: (i32, bool)) -> (bool, i32) {
-    let (a, b) = pair;
+use crate::activity::reverse;
+use crate::activity::transpose;
+use crate::activity::Matrix;
 
-    (b, a)
+mod activity;
+
+fn analyze_slice(slice: &[i32]) {
+    println!("first element of the slice: {}", slice[0]);
+    println!("the slice has {} elements", slice.len());
 }
-
-#[derive(Debug)]
-struct Matrix(f32, f32, f32, f32);
 
 fn main() {
     let x: bool = true;
@@ -84,7 +86,23 @@ fn main() {
 
     println!("destructured tuple: {} {}", destructured_a, destructured_b);
 
+    let m = Matrix(1.1, 1.2, 2.1, 2.2);
+
+    println!("Matrix: \n{}", m);
+    println!("Transpose Matrix: \n{}", transpose(m));
+
     let y: Option<String> = Some(123.to_string());
 
     println!("{} {:?}", y.iter().count(), y.iter().next());
+
+    let xs: [i32; 5] = [1, 2, 3, 4, 5];
+    let ys: [i32; 500] = [0; 500];
+
+    println!("first element of the array: {}", xs[0]);
+    println!("number of elements in array: {}", xs.len());
+
+    println!("array occupies {} bytes", size_of_val(&xs));
+
+    println!("borrow a section of the array as a slice");
+    analyze_slice(&ys[1..7]);
 }
