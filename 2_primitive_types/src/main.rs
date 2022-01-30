@@ -1,6 +1,15 @@
 use std::mem::size_of;
 use std::mem::size_of_val;
 
+fn reverse(pair: (i32, bool)) -> (bool, i32) {
+    let (a, b) = pair;
+
+    (b, a)
+}
+
+#[derive(Debug)]
+struct Matrix(f32, f32, f32, f32);
+
 fn main() {
     let x: bool = true;
 
@@ -39,9 +48,9 @@ fn main() {
     // println!("1 - 2 = {}", 1u32 - 2);
 
     // Boolean logic
-    println!("true AND false is {}", true && false);
-    println!("true OR false is {}", true || false);
-    println!("NOT true is {}", !true);
+    println!("true && false is {}", true && false);
+    println!("true || false is {}", true || false);
+    println!("!true is {}", !true);
 
     // Bitwise operations
     println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
@@ -52,7 +61,30 @@ fn main() {
 
     println!("One million is written as {}", 1_000_000u32);
 
-    let y: Option<String> = Some("123".to_string());
+    let long_tuple = (
+        1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true,
+    );
+    println!("long tuple first value: {}", long_tuple.0);
 
-    println!("{}", y.iter().count());
+    let tuple_of_tuples = ((1u8, 2u16, 3u32), (4u64, -1i8, -2i16), -3i32);
+
+    println!("tuple of tuples first value: {}", tuple_of_tuples.0 .0);
+    println!("tuple of tuples: {:?}", tuple_of_tuples);
+    println!("long tuple: {:?}", long_tuple);
+
+    let pair = (1, true);
+
+    println!("pair: {:?}", pair);
+    println!("reverse pair: {:?}", reverse(pair));
+
+    println!("one element tuple: {:?}", (5u32,));
+    println!("just an integer: {:?}", (5u32));
+
+    let (destructured_a, destructured_b) = reverse(pair);
+
+    println!("destructured tuple: {} {}", destructured_a, destructured_b);
+
+    let y: Option<String> = Some(123.to_string());
+
+    println!("{} {:?}", y.iter().count(), y.iter().next());
 }
