@@ -3,6 +3,7 @@
 members = [
   "1_hello_world",
   "2_primitive_types",
+  "3_custom_types",
   "4_variable_bindings",
   "9_functions",
 ]
