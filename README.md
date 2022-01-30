@@ -1,6 +1,6 @@
 Rust Example
 =============
-It's the Rust examples for personal practice. It refences from [Rust Book](https://doc.rust-lang.org/stable/book/README.html) and [Rust Example](http://rustbyexample.com/index.html)
+It's the Rust examples for personal practice. It refences from [Rust Book](https://doc.rust-lang.org/stable/book/README.html) and [Rust Example](https://doc.rust-lang.org/rust-by-example/)
 
 ## Install
 
@@ -9,9 +9,9 @@ It's the Rust examples for personal practice. It refences from [Rust Book](https
 
 ## Run
 
-Enter each folder and run
+Use cargo workspace to run.
 ```
-cargo run
+cargo run -p hello_world
 ```
 
 ## License
