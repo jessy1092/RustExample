@@ -1,7 +1,8 @@
 use activity::Person;
 
 use crate::activity::{
-    inspect, rect_area, square, List, Operations, Pair, Point, Rectangle, Unit, WebEvent,
+    inspect, rect_area, square, List, Operations, Pair, Point, Rectangle, Unit, WebEvent, LANGUAGE,
+    THRESHOLD,
 };
 
 mod activity;
@@ -96,4 +97,6 @@ fn main() {
 
     println!("len {} ", list.len());
     println!("total {}", list.stringify());
+
+    println!("Constant {} {}", LANGUAGE, THRESHOLD);
 }

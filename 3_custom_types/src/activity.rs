@@ -121,3 +121,6 @@ impl List {
         }
     }
 }
+
+pub static LANGUAGE: &str = "Rust";
+pub const THRESHOLD: i32 = 10;
