@@ -1,8 +1,21 @@
 use activity::Person;
 
-use crate::activity::{rect_area, square, Pair, Point, Rectangle, Unit};
+use crate::activity::{
+    inspect, rect_area, square, List, Operations, Pair, Point, Rectangle, Unit, WebEvent,
+};
 
 mod activity;
+
+fn enum_scope() {
+    use crate::activity::Status::{Poor, Rich};
+
+    let status = Rich;
+
+    match status {
+        Rich => println!("Rich {}", Rich as i32),
+        Poor => println!("Poor {}", Poor as i32),
+    }
+}
 
 fn main() {
     let name = String::from("Peter");
@@ -56,4 +69,31 @@ fn main() {
         5.0,
         square(&point, 5.0)
     );
+
+    let load = WebEvent::PageLoad;
+    let unload = WebEvent::PageUnload;
+    let press = WebEvent::KeyPress('x');
+    let paste = WebEvent::Paste(String::from("test"));
+    let click = WebEvent::Click { x: 10, y: 5 };
+
+    inspect(load);
+    inspect(unload);
+    inspect(press);
+    inspect(paste);
+    inspect(click);
+
+    let x = Operations::Add;
+
+    println!("{}", x.run(1, 2));
+
+    enum_scope();
+
+    let mut list = List::new();
+
+    list = list.prepend(1);
+    list = list.prepend(4);
+    list = list.prepend(7);
+
+    println!("len {} ", list.len());
+    println!("total {}", list.stringify());
 }

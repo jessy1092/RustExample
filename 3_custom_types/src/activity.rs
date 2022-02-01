@@ -53,3 +53,71 @@ pub fn square(point: &Point, width: f32) -> Rectangle {
         },
     }
 }
+
+pub enum WebEvent {
+    PageLoad,
+    PageUnload,
+    KeyPress(char),
+    Paste(String),
+    Click { x: i64, y: i64 },
+}
+
+pub fn inspect(event: WebEvent) {
+    match event {
+        WebEvent::PageLoad => println!("page loaded"),
+        WebEvent::PageUnload => println!("page unloaded"),
+        WebEvent::KeyPress(c) => println!("press {}", c),
+        WebEvent::Paste(s) => println!("paste {}", s),
+        WebEvent::Click { x, y } => println!("click at ({}, {})", x, y),
+    }
+}
+
+pub enum VeryVerboseEnumOfThingsToDoWithNumbers {
+    Add,
+    Subtract,
+}
+
+pub type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+
+impl Operations {
+    pub fn run(&self, x: i32, y: i32) -> i32 {
+        match self {
+            Self::Add => x + y,
+            Self::Subtract => x - y,
+        }
+    }
+}
+
+pub enum Status {
+    Rich,
+    Poor,
+}
+
+pub enum List {
+    Cons(u32, Box<List>),
+    Nil,
+}
+
+impl List {
+    pub fn new() -> List {
+        Self::Nil
+    }
+
+    pub fn prepend(self, elm: u32) -> List {
+        Self::Cons(elm, Box::new(self))
+    }
+
+    pub fn len(&self) -> i32 {
+        match *self {
+            Self::Cons(_, ref tail) => 1 + tail.len(), // recursive
+            Self::Nil => 0,
+        }
+    }
+
+    pub fn stringify(&self) -> String {
+        match *self {
+            Self::Cons(head, ref tail) => format!("({}, {})", head, tail.stringify()), // recursive
+            Self::Nil => format!("Nil"),
+        }
+    }
+}
