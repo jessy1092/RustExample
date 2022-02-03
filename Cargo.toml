@@ -7,5 +7,6 @@ members = [
   "4_variable_bindings",
   "5_types",
   "6_conversion",
+  "7_expressions",
   "9_functions",
 ]
