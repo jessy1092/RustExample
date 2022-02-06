@@ -52,3 +52,75 @@ impl Pair {
         println!("Destroying Pair ({}, {})", first, secound);
     }
 }
+
+pub fn apply<F>(mut f: F)
+where
+    F: FnMut(),
+{
+    f()
+}
+
+pub fn apply_to_3<F>(f: F) -> i32
+where
+    F: Fn(i32) -> i32,
+{
+    f(3)
+}
+
+pub fn call_me<F: Fn()>(f: F) {
+    f();
+}
+
+pub fn function() {
+    println!("I'm a function");
+}
+
+pub fn create_fn() -> impl Fn() {
+    let text = "Fn".to_owned();
+
+    move || println!("This is a: {}", text)
+}
+
+pub fn create_fnmut() -> impl FnMut() {
+    let mut text = "FnMut".to_owned();
+
+    move || {
+        text.push_str("!!!!");
+        println!("This is a: {}", text)
+    }
+}
+
+pub fn create_fnonce() -> impl FnOnce() {
+    let text = "FnOnce".to_owned();
+
+    move || {
+        println!("This is a: {}", text);
+        drop(text);
+    }
+}
+
+pub fn is_odd(n: u32) -> bool {
+    n % 2 == 1
+}
+
+pub fn foo() -> ! {
+    panic!("This call never returns.")
+}
+
+pub fn some_fn() {
+    ()
+}
+
+pub fn sum_odd_numbers(up_to: u32) -> u32 {
+    let mut acc = 0;
+
+    for i in 0..up_to {
+        let addition: u32 = match i % 2 == 1 {
+            true => i,
+            false => continue, // OK, match u32 because never return
+        };
+        acc += addition;
+    }
+
+    acc
+}
