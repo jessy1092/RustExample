@@ -13,4 +13,5 @@ members = [
   "10_modules",
   "11_crates",
   "12_cargo",
+  "13_attributes",
 ]
