@@ -27,6 +27,10 @@ name = "hello_world"
 version = "0.1.0"
 
 [[package]]
+name = "modules"
+version = "0.1.0"
+
+[[package]]
 name = "primitive_types"
 version = "0.1.0"
 

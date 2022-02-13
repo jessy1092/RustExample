@@ -10,4 +10,5 @@ members = [
   "7_expressions",
   "8_flow_of_control",
   "9_functions",
+  "10_modules",
 ]
