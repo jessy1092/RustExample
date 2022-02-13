@@ -1,1 +1,8 @@
 target
+
+# for 11 crates 
+main
+*.rlib
+
+# for 12 cargo 
+*.txt

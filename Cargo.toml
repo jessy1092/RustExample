@@ -11,4 +11,6 @@ members = [
   "8_flow_of_control",
   "9_functions",
   "10_modules",
+  "11_crates",
+  "12_cargo",
 ]

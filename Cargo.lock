@@ -3,7 +3,15 @@
 version = 3
 
 [[package]]
+name = "cargo"
+version = "0.1.0"
+
+[[package]]
 name = "conversion"
+version = "0.1.0"
+
+[[package]]
+name = "crates"
 version = "0.1.0"
 
 [[package]]
