@@ -86,6 +86,10 @@ mod my {
         pub fn new(contents: T) -> CloseBox<T> {
             CloseBox { contents: contents }
         }
+
+        pub fn get_contents(&self) -> &T {
+            &self.contents
+        }
     }
 }
 
@@ -152,6 +156,8 @@ fn main() {
     println!("The open box contains: {}", open_box.contents);
 
     let _close_box = my::CloseBox::new("classified information");
+
+    println!("The close box get contents: {}", _close_box.get_contents());
 
     use deeply::nested::function as other_function;
 
